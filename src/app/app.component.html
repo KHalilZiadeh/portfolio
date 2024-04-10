@@ -1,4 +1,23 @@
-<mat-toolbar><i class="fas fa-home text-warning"></i>
+<mat-toolbar class="sticky-top"><i class="fas fa-home text-warning"
+     (click)="drawer.toggle()"></i>
 </mat-toolbar>
-<div class="container-fluid">
-</div>
+<mat-drawer-container>
+  <mat-tab-group>
+    <mat-tab label="me">
+      <div class="container">
+        <app-greeter class="mb-3"></app-greeter>
+        here goes the cv and so
+      </div>
+    </mat-tab>
+    <mat-tab label="portfolio features">here goes portfolio features and so</mat-tab>
+    <mat-tab label="how its done">here goes how I did things and so</mat-tab>
+  </mat-tab-group>
+  <mat-drawer #drawer
+              mode="over"
+              class="px-3 pt-3">
+    <button mat-button>
+      <p>portfolio-> <ins>v0.0</ins></p>
+    </button>
+    here should go some dynamic data I hope
+  </mat-drawer>
+</mat-drawer-container>

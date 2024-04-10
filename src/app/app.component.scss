@@ -1,0 +1,15 @@
+mat-drawer-container {
+  height: 100svh;
+
+  ::ng-deep .mat-tab-label {
+    padding: 0;
+    width: calc((100vw / 3));
+  }
+
+  ::ng-deep .mat-drawer-inner-container {
+    max-width: 218px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}
