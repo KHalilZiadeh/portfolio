@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, Renderer2, SimpleChange, SimpleChanges, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-titles',
@@ -20,21 +20,20 @@ export class TitlesComponent implements AfterViewInit {
   ngAfterViewInit(): void {
     this.spellTitle(this.titles[0]);
     this.shuffleTitle();
-  }
+  };
 
   shuffleTitle(): void {
     clearInterval(this.tIntId);
     this.tIntId = null;
     this.tIntId = setInterval(() => {
       this.spellTitle(this.titles[(this.titleIndx++) % this.titles.length]);
-    }, 3000);
-  }
+    }, 5000);
+  };
 
   spellTitle(title: string): void {
     clearInterval(this.cIntId);
     this.renderer.removeClass(this.cursor.nativeElement, 'blink');
-    this.cIntId = null;
-    let titleL: number = 0;
+    this.cIntId = null; let titleL: number = 0;
     this.cIntId = setInterval(() => {
       this.title = title.slice(0, titleL);
       if (titleL == title.length) {
@@ -42,6 +41,6 @@ export class TitlesComponent implements AfterViewInit {
       }
       titleL++;
     }, 150);
-  }
+  };
 
 }
