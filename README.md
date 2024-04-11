@@ -16,5 +16,5 @@
 ## Mile stones
 | feature | description | status |
 | :--- | :----: | ---: |
-| social media | Add social media accounts | in progress |
-| Me | Add the CV | backlog |
+| social media | Add social media accounts | [x] |
+| Me | Add the CV | in progress |

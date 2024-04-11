@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  @ViewChild('plus', { static: false }) plus!: ElementRef;
   title = 'portfolio';
+
+  constructor(private renderer: Renderer2) { }
+  rotate() {
+    this.plus.nativeElement.classList.contains('rotate') ?
+      this.renderer.removeClass(this.plus.nativeElement, 'rotate') :
+      this.renderer.addClass(this.plus.nativeElement, 'rotate');
+  }
 }

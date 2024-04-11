@@ -1,5 +1,10 @@
-<mat-toolbar class="sticky-top"><i class="fas fa-home text-warning"
-     (click)="drawer.toggle()"></i>
+<mat-toolbar class="sticky-top d-flex align-items-center justify-content-end">
+  <div class="toggle-drawer"
+       (click)="drawer.toggle()">
+    <i class="fa-solid fa-minus"
+       #plus></i>
+    <i class="fa-solid fa-minus"></i>
+  </div>
 </mat-toolbar>
 <mat-drawer-container>
   <mat-tab-group>
@@ -13,11 +18,22 @@
     <mat-tab label="how its done">here goes how I did things and so</mat-tab>
   </mat-tab-group>
   <mat-drawer #drawer
+              [position]="'end'"
+              autoFocus="none"
+              (closedStart)="rotate()"
+              (openedStart)="rotate()"
               mode="over"
-              class="px-3 pt-3">
-    <button mat-button>
-      <p>portfolio-> <ins>v0.0</ins></p>
-    </button>
-    here should go some dynamic data I hope
+              class="px-3 pt-3 w-75">
+    <div class="social d-flex flex-wrap align-items-center justify-content-evenly w-100 h3">
+      <a href="https://github.com/KHalilZiadeh"><i class="fa-brands fa-github"></i></a>
+      <a class="ms-2"
+         href="https://www.linkedin.com/in/khalil-ziadeh/"><i class="fa-brands fa-linkedin"></i></a>
+      <a class="ms-2"
+         href="https://www.facebook.com/khalil.ziadeh.98"><i class="fa-brands fa-facebook"></i></a>
+      <a class="ms-2"
+         href="https://codepen.io/KHalilZiadeh"><i class="fa-brands fa-codepen"></i></a>
+      <a class="ms-2"
+         href="https://www.instagram.com/kdehzial/"><i class="fa-brands fa-instagram"></i></a>
+    </div>
   </mat-drawer>
 </mat-drawer-container>

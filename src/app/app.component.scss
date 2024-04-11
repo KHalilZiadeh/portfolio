@@ -1,5 +1,33 @@
+mat-toolbar {
+  .toggle-drawer {
+    width: 40px;
+    height: 40px;
+    position: relative;
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 25%;
+      translate: 0 -50%;
+      transition: all 0.3s;
+
+      &:first-of-type {
+        rotate: 450deg;
+      }
+
+      &:first-of-type.rotate {
+        rotate: none;
+      }
+
+    }
+
+
+  }
+}
+
 mat-drawer-container {
   height: 100svh;
+
 
   ::ng-deep .mat-tab-label {
     padding: 0;
