@@ -1,4 +1,5 @@
-<mat-toolbar class="sticky-top d-flex align-items-center justify-content-end">
+<mat-toolbar class="sticky-top d-flex align-items-center justify-content-between">
+  <p class="m-0">KHalil Ziadeh</p>
   <div class="toggle-drawer"
        (click)="drawer.toggle()">
     <i class="fa-solid fa-minus"
@@ -10,8 +11,7 @@
   <mat-tab-group>
     <mat-tab label="me">
       <div class="container">
-        <app-greeter class="mb-3"></app-greeter>
-        here goes the cv and so
+        <app-titles></app-titles>
       </div>
     </mat-tab>
     <mat-tab label="portfolio features">here goes portfolio features and so</mat-tab>
@@ -24,7 +24,7 @@
               (openedStart)="rotate()"
               mode="over"
               class="px-3 pt-3 w-75 d-flex justify-content-center">
-    <div class="social d-flex flex-wrap align-items-center justify-content-around  w-100 h3 pt-3">
+    <div class="social d-flex flex-wrap align-items-center justify-content-around  w-100 h3">
       <a class="text-light"
          href="https://github.com/KHalilZiadeh"><i class="fa-brands fa-github"></i>
         <p>GitHub</p>

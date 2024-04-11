@@ -10,7 +10,7 @@ export class CursorDirective implements OnInit {
   ngOnInit(): void {
     this.elementRef.nativeElement.style.backgroundColor = '#eee';
     this.elementRef.nativeElement.style.color = 'transparent';
-    this.elementRef.nativeElement.style.width = '0.06rem';
-    this.elementRef.nativeElement.style.hieght = '1rem';
+    this.elementRef.nativeElement.style.width = '0.2rem';
+    this.elementRef.nativeElement.style.height = '2.5rem';
   }
 }

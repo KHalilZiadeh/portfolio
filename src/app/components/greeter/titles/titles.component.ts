@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-titles',
   templateUrl: './titles.component.html',
   styleUrls: ['./titles.component.scss']
 })
-export class TitlesComponent implements OnInit {
+export class TitlesComponent implements AfterViewInit {
+
+  @ViewChild('cursor') cursor!: ElementRef;
 
   titles: string[] = ['here', 'goes', 'some', 'random', 'text'];
   titleIndx: number = 1;
@@ -13,9 +15,9 @@ export class TitlesComponent implements OnInit {
   tIntId!: any;
   cIntId!: any;
 
-  constructor() { }
+  constructor(private renderer: Renderer2) { }
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.spellTitle(this.titles[0]);
     this.shuffleTitle();
   }
@@ -30,10 +32,15 @@ export class TitlesComponent implements OnInit {
 
   spellTitle(title: string): void {
     clearInterval(this.cIntId);
+    this.renderer.removeClass(this.cursor.nativeElement, 'blink');
     this.cIntId = null;
-    let titleL: number = 1;
+    let titleL: number = 0;
     this.cIntId = setInterval(() => {
-      this.title = title.slice(0, titleL++);
+      this.title = title.slice(0, titleL);
+      if (titleL == title.length) {
+        this.renderer.addClass(this.cursor.nativeElement, 'blink');
+      }
+      titleL++;
     }, 150);
   }
 

@@ -1,2 +1,12 @@
-<h1>{{title}}<span class="d-inline-block"
-              appCursor>-</span></h1>
+<div class="d-flex align-items-center">
+  <span #text
+        [attr.width]="text.offsetWidth"
+        id="text-placeholder"
+        class="display-1 fst-bold">
+    {{text.offsetWidth}}
+    {{title}}
+  </span>
+  <div #cursor
+       class="d-inline-block"
+       appCursor></div>
+</div>

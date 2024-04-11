@@ -1,0 +1,43 @@
+div {
+  span {
+    display: inline-block;
+    position: relative;
+
+
+    h1 {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: #00ffac;
+      height: 3px;
+      bottom: -4px;
+    }
+  }
+}
+
+.blink {
+  margin-inline-start: 0.5rem;
+  animation: blink 0.4s 0s infinite linear;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 0.2rem;
+    background-color: #00ffac;
+    height: 3px;
+    bottom: -8px
+  }
+}
+
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
