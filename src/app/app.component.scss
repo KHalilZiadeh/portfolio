@@ -1,3 +1,10 @@
+@mixin flex($align, $justify, $dir: row) {
+  display: flex;
+  align-items: $align;
+  justify-content: $justify;
+  flex-direction: $dir;
+}
+
 mat-toolbar {
   .toggle-drawer {
     width: 40px;
@@ -36,8 +43,19 @@ mat-drawer-container {
 
   ::ng-deep .mat-drawer-inner-container {
     max-width: 218px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+    @include flex(center, start, column);
+
+    div {
+      a {
+        @include flex(center, space-between, column);
+        text-decoration: none;
+
+        p {
+          font-size: 1rem;
+          color: white;
+          padding-top: 0.5rem;
+        }
+      }
+    }
   }
 }
